@@ -165,6 +165,7 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Add Medicine";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.AddMedicineClick);
             // 
             // ckReseipt
             // 
@@ -273,6 +274,8 @@
             this.cmbTags.Name = "cmbTags";
             this.cmbTags.Size = new System.Drawing.Size(152, 28);
             this.cmbTags.TabIndex = 30;
+            this.cmbTags.SelectedIndexChanged += new System.EventHandler(this.CmbTags_SelectedIndexChanged);
+            this.cmbTags.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbTags_KeyPress);
             // 
             // label10
             // 
