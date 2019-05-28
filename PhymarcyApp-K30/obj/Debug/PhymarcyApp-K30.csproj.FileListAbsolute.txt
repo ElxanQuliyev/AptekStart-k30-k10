@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\PhymarcyApp-K30.exe.config
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\PhymarcyApp-K30.exe
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\PhymarcyApp-K30.pdb
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.csprojAssemblyReference.cache
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp_K30.Form1.resources
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp_K30.Properties.Resources.resources
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.csproj.GenerateResource.cache
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.exe
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.pdb
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp_K30.AddMedicine.resources
+C:\Users\User\source\repos\PhymarcyApp-K30\PhymarcyApp-K30\obj\Debug\PhymarcyApp-K30.csproj.CopyComplete
