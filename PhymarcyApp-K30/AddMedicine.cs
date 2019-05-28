@@ -14,6 +14,10 @@ namespace PhymarcyApp_K30
     public partial class AddMedicine : Form
     {
         AptekDBEntities db = new AptekDBEntities();
+        int LocX = 10;
+        int LocY = 20;
+        int marginX=10;
+        int marginY = 10;
         public AddMedicine()
         {
             InitializeComponent();
@@ -23,6 +27,53 @@ namespace PhymarcyApp_K30
         {
             FillFirms();
             FillDataGridMedicine();
+            FillComboTags();
+        }
+        private void FillComboTags()
+        {
+            cmbTags.Items.AddRange(db.Tags.Select(tg => tg.Name).ToArray());
+        }
+
+        private void AddTag()
+        {
+            string tag = cmbTags.Text;
+            if (tag != string.Empty)
+            {
+                if (checkButtons(tag))
+                {
+                    Button btn = new Button();
+                    btn.Text = tag;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.BackColor = Color.LightSeaGreen;
+                    if (LocX + btn.Width >= grpTags.Width)
+                    {
+                        LocX = marginX;
+                        LocY += marginY + btn.Height;
+                    }
+                    btn.Location = new Point(LocX, LocY);
+
+                    LocX += btn.Width + marginX;
+                    btn.Click += new System.EventHandler(TagButtonsClick);
+                    btn.Parent = grpTags;
+                }
+            }
+
+        }
+        private bool checkButtons(string tag)
+        {
+            foreach (Button btn in grpTags.Controls)
+            {
+                if (btn.Text == tag)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void TagButtonsClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            grpTags.Controls.Remove(btn);
         }
         private void FillFirms()
         {
@@ -66,7 +117,9 @@ namespace PhymarcyApp_K30
             db.SaveChanges();
             return addedFirm.Id;
         }
-        private void Button1_Click(object sender, EventArgs e)
+   
+   
+        private void AddMedicineClick(object sender, EventArgs e)
         {
             string name = txtMedicine.Text;
             string QrCode =nmQrCode.Value.ToString();
@@ -100,7 +153,8 @@ namespace PhymarcyApp_K30
                         };
                         db.Medicines.Add(md);
                         db.SaveChanges();
-                        MessageBox.Show("Was successfully edit " + md.Name + " to Phymarcy list", "Succeffuly", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Was successfully add " + md.Name + " to Phymarcy list", "Succeffuly", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FillDataGridMedicine();
                     }
                 }
                 else
@@ -116,6 +170,20 @@ namespace PhymarcyApp_K30
             }
 
             
+        }
+        
+        private void CmbTags_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddTag();
+        }
+     
+
+        private void CmbTags_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                AddTag();
+            }
         }
     }
 }
