@@ -107,10 +107,10 @@
             this.dtgAddMedicine.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgAddMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAddMedicine.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgAddMedicine.Location = new System.Drawing.Point(0, 643);
+            this.dtgAddMedicine.Location = new System.Drawing.Point(0, 687);
             this.dtgAddMedicine.Name = "dtgAddMedicine";
             this.dtgAddMedicine.ReadOnly = true;
-            this.dtgAddMedicine.Size = new System.Drawing.Size(1194, 299);
+            this.dtgAddMedicine.Size = new System.Drawing.Size(1395, 255);
             this.dtgAddMedicine.TabIndex = 17;
             // 
             // lblError
@@ -129,7 +129,7 @@
             // 
             this.grpTags.Location = new System.Drawing.Point(830, 113);
             this.grpTags.Name = "grpTags";
-            this.grpTags.Size = new System.Drawing.Size(364, 172);
+            this.grpTags.Size = new System.Drawing.Size(364, 324);
             this.grpTags.TabIndex = 23;
             this.grpTags.TabStop = false;
             this.grpTags.Text = "Selected Tag";
@@ -263,7 +263,7 @@
             this.panel2.Controls.Add(this.nmCount);
             this.panel2.Location = new System.Drawing.Point(293, -1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 105);
+            this.panel2.Size = new System.Drawing.Size(1102, 105);
             this.panel2.TabIndex = 25;
             // 
             // cmbTags
@@ -359,7 +359,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1194, 942);
+            this.ClientSize = new System.Drawing.Size(1395, 942);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grpTags);

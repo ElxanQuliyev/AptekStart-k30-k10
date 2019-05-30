@@ -28,6 +28,9 @@ namespace PhymarcyApp_K30
             FillFirms();
             FillDataGridMedicine();
             FillComboTags();
+        
+       
+
         }
         private void FillComboTags()
         {
@@ -134,32 +137,41 @@ namespace PhymarcyApp_K30
                 Name,QrCode,firms
             },string.Empty))
             {
-                if (QrCode.Length == 5)
+                if (QrCode.Length > 3)
                 {
                     if (price > 0 && count > 0)
                     {
-                        int firmId = checkFirm(firms);
-                        Medicine md = new Medicine
-                        {
-                            Name = name,
-                            Qr_Code = QrCode,
-                            Description = Desc,
-                            WithReceipt = Convert.ToByte(withReceipt),
-                            Price = price,
-                            Count = count,
-                            Pro_date = productionDate,
-                            Valid_date = validDate,
-                            Firm_Id = firmId
-                        };
-                        db.Medicines.Add(md);
-                        db.SaveChanges();
-                        MessageBox.Show("Was successfully add " + md.Name + " to Phymarcy list", "Succeffuly", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Medicine md = null ;
+                       
+                            int firmId = checkFirm(firms);
+                            md = new Medicine
+                            {
+                                Name = name,
+                                Qr_Code = QrCode,
+                                Description = Desc,
+                                WithReceipt = Convert.ToByte(withReceipt),
+                                Price = price,
+                                Count = count,
+                                Pro_date = productionDate,
+                                Valid_date = validDate,
+                                Firm_Id = firmId
+                            };
+                            db.Medicines.Add(md);
+                            db.SaveChanges();
+
+                        
+                        
+                     
+                            int newMedicineId = md.ID;
+                            AddAllTags(newMedicineId);
+                            MessageBox.Show("Was successfully add " + md.Name + " to Phymarcy list", "Succeffuly", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
                         FillDataGridMedicine();
                     }
                 }
                 else
                 {
-                    lblError.Text = "QrCode should be 13 length Charachter";
+                    lblError.Text = "QrCode should be 8 length Charachter";
                     lblError.Visible = true;
                 }
             }
@@ -186,6 +198,44 @@ namespace PhymarcyApp_K30
             }
         }
 
-        
+        private void AddAllTags(int medicineId)
+        {
+            foreach (Button tagBtn in grpTags.Controls)
+            {
+                int tagId=0;
+                Tag addedTag = null;
+                Tag tag = db.Tags.FirstOrDefault(tg => tg.Name == tagBtn.Text);
+                if (tag == null)
+                {
+
+                    Task tagTask = Task.Factory.StartNew(() =>
+                    {
+                        addedTag = db.Tags.Add(new Tag
+                        {
+                            Name = tagBtn.Text
+                        });
+                        db.SaveChanges();
+
+                    });
+                    tagTask.Wait();
+                    if (tagTask.IsCompleted)
+                    {
+                        tagId = addedTag.Id;
+                    }
+                    
+                }
+                else
+                {
+                    tagId = tag.Id;
+                }
+                db.TagMeds.Add(new TagMed
+                {
+                    Tag_Id = tagId,
+                    Medicine_Id = medicineId
+                });
+                db.SaveChanges();
+            }
+           
+        }
     }
 }
